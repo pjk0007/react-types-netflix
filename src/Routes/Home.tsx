@@ -33,7 +33,7 @@ const Loader = styled.div`
 /************************************/
 
 function Home() {
-  const bigMovieMatch = useMatch("/movies/:boxId");
+  const bigMovieMatch = useMatch(process.env.PUBLIC_URL + "/movies/:boxId");
 
   const [totalMovie, setTotalMovie] = useState<any>([]);
 

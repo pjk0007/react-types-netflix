@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
-import { useMatch, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { makeImagePath } from "../utills";
 
@@ -59,7 +59,8 @@ function Modal({ clickedMovie, boxId, keyword }: any) {
   const { scrollY } = useViewportScroll();
   console.log(keyword, "a");
 
-  const onOverlayClick = () => navigate(`/search?keyword=${keyword}`);
+  const onOverlayClick = () =>
+    navigate(process.env.PUBLIC_URL + `/search?keyword=${keyword}`);
 
   return (
     <AnimatePresence>

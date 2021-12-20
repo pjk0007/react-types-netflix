@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 import { useQuery } from "react-query";
-import { useLocation, useMatch, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 import { getSearchData, IGetMoviesResult } from "../api";
 import SearchModal from "../Components/SearchModal";
@@ -88,7 +87,9 @@ function Search() {
     }
   );
   const onBoxClicked = (movieId: number) => {
-    navigate(`/search?keyword=${keyword}&boxId=${movieId}`);
+    navigate(
+      process.env.PUBLIC_URL + `/search?keyword=${keyword}&boxId=${movieId}`
+    );
   };
 
   console.log(keyword, "b");

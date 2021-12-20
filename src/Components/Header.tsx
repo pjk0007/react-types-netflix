@@ -117,8 +117,8 @@ interface IForm {
 
 function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
-  const homeMatch = useMatch("/");
-  const tvMatch = useMatch("/tv");
+  const homeMatch = useMatch(process.env.PUBLIC_URL + "/");
+  const tvMatch = useMatch(process.env.PUBLIC_URL + "/tv");
   const inputAnimation = useAnimation();
   const navAnimation = useAnimation();
   const { scrollY } = useViewportScroll();
@@ -144,11 +144,11 @@ function Header() {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm<IForm>();
   const onValid = (data: IForm) => {
-    navigate(`/search?keyword=${data.keyword}`);
+    navigate(process.env.PUBLIC_URL + `/search?keyword=${data.keyword}`);
   };
 
   const onClickLogo = () => {
-    navigate(`/`);
+    navigate(process.env.PUBLIC_URL + `/`);
   };
 
   return (
@@ -169,10 +169,12 @@ function Header() {
         </Logo>
         <Items>
           <Item>
-            <Link to="/">Home {homeMatch && <Circle layoutId="circle" />}</Link>
+            <Link to={process.env.PUBLIC_URL + "/"}>
+              Home {homeMatch && <Circle layoutId="circle" />}
+            </Link>
           </Item>
           <Item>
-            <Link to="/tv">
+            <Link to={process.env.PUBLIC_URL + "/tv"}>
               Tv Shows {tvMatch && <Circle layoutId="circle" />}
             </Link>
           </Item>

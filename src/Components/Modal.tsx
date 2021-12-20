@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
-import { useMatch, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { makeImagePath } from "../utills";
 
@@ -56,7 +56,7 @@ function Modal({ clickedMovie, boxId }: any) {
   const navigate = useNavigate();
   const { scrollY } = useViewportScroll();
 
-  const onOverlayClick = () => navigate("/");
+  const onOverlayClick = () => navigate(process.env.PUBLIC_URL + "/");
 
   return (
     <AnimatePresence>

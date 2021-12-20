@@ -153,7 +153,7 @@ function TvSlider({ data, category, gubun }: any) {
   };
   const navigate = useNavigate();
   const onBoxClicked = (movieId: number) => {
-    navigate(`/tv/${gubun + movieId}`);
+    navigate(process.env.PUBLIC_URL + `/tv/${gubun + movieId}`);
   };
 
   return (

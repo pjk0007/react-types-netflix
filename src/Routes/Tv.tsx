@@ -35,7 +35,7 @@ const Loader = styled.div`
 /************************************/
 
 function Tv() {
-  const bigMovieMatch = useMatch("/tv/:boxId");
+  const bigMovieMatch = useMatch(process.env.PUBLIC_URL + "/tv/:boxId");
 
   const [totalMovie, setTotalMovie] = useState<any>([]);
 

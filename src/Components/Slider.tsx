@@ -153,7 +153,7 @@ function Slider({ data, category, gubun }: any) {
   };
   const navigate = useNavigate();
   const onBoxClicked = (movieId: number) => {
-    navigate(`/movies/${gubun + movieId}`);
+    navigate(process.env.PUBLIC_URL + `/movies/${gubun + movieId}`);
   };
 
   return (
