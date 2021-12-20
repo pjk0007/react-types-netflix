@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/github.io/react-types-netflix/static/js/main.43719b08.js",
-    "index.html": "/github.io/react-types-netflix/index.html",
-    "main.43719b08.js.map": "/github.io/react-types-netflix/static/js/main.43719b08.js.map"
+    "main.js": "/react-types-netflix/static/js/main.7d0dc66c.js",
+    "index.html": "/react-types-netflix/index.html",
+    "main.7d0dc66c.js.map": "/react-types-netflix/static/js/main.7d0dc66c.js.map"
   },
   "entrypoints": [
-    "static/js/main.43719b08.js"
+    "static/js/main.7d0dc66c.js"
   ]
 }
