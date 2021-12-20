@@ -15,6 +15,7 @@ const Nav = styled(motion.nav)`
   font-size: 14px;
   padding: 20px 60px;
   color: white;
+  z-index: 10;
 `;
 
 const Col = styled.div`
@@ -143,14 +144,19 @@ function Header() {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm<IForm>();
   const onValid = (data: IForm) => {
-    console.log(data.keyword);
     navigate(`/search?keyword=${data.keyword}`);
+  };
+
+  const onClickLogo = () => {
+    navigate(`/`);
   };
 
   return (
     <Nav variants={navVariants} initial={"top"} animate={navAnimation}>
       <Col>
         <Logo
+          cursor="pointer"
+          onClick={onClickLogo}
           variants={logoVariants}
           initial="normal"
           whileHover="active"

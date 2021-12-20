@@ -52,11 +52,11 @@ const Close = styled.div`
   cursor: pointer;
 `;
 
-function Modal({ clickedMovie, boxId }: any) {
+function TvModal({ clickedMovie, boxId }: any) {
   const navigate = useNavigate();
   const { scrollY } = useViewportScroll();
 
-  const onOverlayClick = () => navigate("/");
+  const onOverlayClick = () => navigate("/tv");
 
   return (
     <AnimatePresence>
@@ -81,7 +81,7 @@ function Modal({ clickedMovie, boxId }: any) {
                 <BigCover
                   src={makeImagePath(clickedMovie.backdrop_path, "w500")}
                 />
-                <BigTitle>{clickedMovie.title}</BigTitle>
+                <BigTitle>{clickedMovie.name}</BigTitle>
                 <BigOverview>{clickedMovie.overview}</BigOverview>
               </>
             )}
@@ -92,4 +92,4 @@ function Modal({ clickedMovie, boxId }: any) {
   );
 }
 
-export default Modal;
+export default TvModal;

@@ -123,7 +123,7 @@ const infoVariants = {
 
 const offset = 6;
 
-function Slider({ data, category, gubun }: any) {
+function TvSlider({ data, category, gubun }: any) {
   const [leaving, setLeaving] = useState(false);
   const [index, setIndex] = useState(0);
   const [back, setBack] = useState(false);
@@ -153,7 +153,7 @@ function Slider({ data, category, gubun }: any) {
   };
   const navigate = useNavigate();
   const onBoxClicked = (movieId: number) => {
-    navigate(`/movies/${gubun + movieId}`);
+    navigate(`/tv/${gubun + movieId}`);
   };
 
   return (
@@ -194,10 +194,15 @@ function Slider({ data, category, gubun }: any) {
                   variants={boxVariants}
                   onClick={() => onBoxClicked(movie.id)}
                   transition={{ type: "tween" }}
-                  bgphoto={makeImagePath(movie.backdrop_path, "w500")}
+                  bgphoto={makeImagePath(
+                    movie.backdrop_path
+                      ? movie.backdrop_path
+                      : movie.poster_path,
+                    "w500"
+                  )}
                 >
                   <Info variants={infoVariants}>
-                    <h4>{movie.title}</h4>
+                    <h4>{movie.name}</h4>
                   </Info>
                 </Box>
               ))}
@@ -217,4 +222,4 @@ function Slider({ data, category, gubun }: any) {
   );
 }
 
-export default Slider;
+export default TvSlider;

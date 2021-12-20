@@ -25,7 +25,7 @@ const Overview = styled.p`
 function Banner({ results: data }: any) {
   return (
     <Container bgphoto={makeImagePath(data.backdrop_path || "")}>
-      <Title>{data.title}</Title>
+      <Title>{data.title ? data.title : data.name}</Title>
       <Overview>{data.overview}</Overview>
     </Container>
   );

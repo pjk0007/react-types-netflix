@@ -5,14 +5,16 @@ import { makeImagePath } from "../utills";
 
 const Overlay = styled(motion.div)`
   position: fixed;
+  z-index: 10;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   opacity: 0;
 `;
 
 const BigMovie = styled(motion.div)`
+  z-index: 11;
   position: absolute;
   width: 50vw;
   padding-bottom: 50px;
@@ -52,11 +54,12 @@ const Close = styled.div`
   cursor: pointer;
 `;
 
-function Modal({ clickedMovie, boxId }: any) {
+function Modal({ clickedMovie, boxId, keyword }: any) {
   const navigate = useNavigate();
   const { scrollY } = useViewportScroll();
+  console.log(keyword, "a");
 
-  const onOverlayClick = () => navigate("/");
+  const onOverlayClick = () => navigate(`/search?keyword=${keyword}`);
 
   return (
     <AnimatePresence>
@@ -79,9 +82,16 @@ function Modal({ clickedMovie, boxId }: any) {
             {clickedMovie && (
               <>
                 <BigCover
-                  src={makeImagePath(clickedMovie.backdrop_path, "w500")}
+                  src={makeImagePath(
+                    clickedMovie.backdrop_path
+                      ? clickedMovie.backdrop_path
+                      : clickedMovie.poster_path,
+                    "w500"
+                  )}
                 />
-                <BigTitle>{clickedMovie.title}</BigTitle>
+                <BigTitle>
+                  {clickedMovie.title ? clickedMovie.title : clickedMovie.name}
+                </BigTitle>
                 <BigOverview>{clickedMovie.overview}</BigOverview>
               </>
             )}
